@@ -1,8 +1,8 @@
-all: textsaver.o
-	cc textsaver.o -o textsaver -L/usr/X11R6/lib -lX11
+all: obj/main.o
+	cc obj/main.o -o bin/textsaver -L/usr/local/lib -L/usr/X11R6/lib -lX11
 
-textsaver.o: textsaver.c
-	cc -c textsaver.c -o textsaver.o -I/usr/X11R6/include
+obj/main.o: src/main.c
+	cc -c src/main.c -o obj/main.o -I/usr/local/include -I/usr/X11R6/include
 
 clean:
-	rm textsaver.o textsaver
+	rm obj/*.o bin/*
